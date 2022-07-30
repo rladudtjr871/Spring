@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace는 파일명과 동일하게 적어주는게 좋다 , 패키지 같은 느낌-->
+<mapper namespace="file">
+
+	<insert id="add" parameterType="String">
+		insert into tblFileBoard (seq, title, regdate)
+			values (seqFileBoard.nextVal, #{title}, default)
+	</insert>
+   
+   
+   	<select id="getSeq" resultType="Integer">
+   		select max(seq) from tblFileBoard
+   	</select>
+   
+   	<insert id="addFile" parameterType="fdto">
+   		insert into tblFile (seq, filename, filesize, mimetype, bseq)
+   			values (seqFile.nextVal, #{filename}, #{filesize}, #{mimetype}, #{bseq})
+   	</insert>
+   	
+   	
+   	<select id="list" resultType="bdto" >
+   		select * from tblFileBoard order by seq desc
+   	</select>
+   
+    
+    <select id="flist" parameterType="String" resultType="fdto">
+    	select * from tblFile where bseq = #{seq} order by filename asc
+    </select>
+   
+</mapper>

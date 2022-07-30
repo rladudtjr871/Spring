@@ -1,0 +1,115 @@
+
+@font-face {
+    font-family: 'PyeongChangPeace-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-02@1.0/PyeongChangPeace-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* * {
+    padding: 0;
+    margin: 0;
+} */
+
+body, h1, h2, h3, h4, h5, h6, div, span, p, ul, ol, li, dl, dt, dd, table, th, td, input, textarea, option, fieldset a{
+    font-family: 'PyeongChangPeace-Bold';
+    color: #444;
+}
+
+body, div, span, p, ul, ol, li, dl, dt, dd, table, th, td, input, textarea, option, fieldset a {
+    font-size: 14px;
+    line-height: 1.6rem;
+}
+
+
+.box {
+    border: 1px solid black;    
+}
+
+/* box와 small을 둘 다 가지고 있는 태그에 적용 */
+/* 이처럼 제한이 많을수록 좋다. > 나중에 이상한 곳에 적용되는 일을 줄일 수 있다. */
+.box.small {
+    width: 100px;
+    height: 100px;
+}
+
+.box.medium {
+    width: 200px;
+    height: 200px;
+}
+
+.box.large {
+    width: 350px;
+    height: 350px;
+}
+
+.box.red {
+    background-color: tomato;
+}
+
+.box.blue {
+    background-color: blue;
+}
+
+.box.yellow {
+    background-color: yellow;
+}
+
+.box.margin5 {
+    margin: 5px;
+}
+
+.box.margin10 {
+    margin: 10px;
+}
+
+.box.margin20 {
+    margin: 20px;
+}
+
+.box.padding5 {
+    padding: 5px;
+}
+
+.box.padding10 {
+    padding: 10px;
+}
+
+.box.padding20 {
+    padding: 20px;
+}
+
+
+
+.table {
+    border: 1px solid grey;
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    border: 1px solid grey;
+    padding: 5px;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: tomato;
+}
+
+input, select, textarea {
+    /* 
+        importatn > 이게 들어가면 무조건 이게 무조건 우선
+        > 최후의 수단 > 우선순위 체계를 무너뜨림 > 안 쓰는게 좋다
+    */
+    /* outline: none !important; */
+    outline: none;
+}
+
+input[type=text], input[type=password], textarea {
+    padding: 3px;
+
+}

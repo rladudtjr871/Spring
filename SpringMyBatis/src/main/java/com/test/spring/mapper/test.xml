@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace는 파일명과 동일하게 적어주는게 좋다 , 패키지 같은 느낌-->
+<mapper namespace="test">
+
+	<!-- Query 작성 -->
+    
+    <!-- 
+    <select id=""></select>
+    <insert id=""></insert>
+    <update id=""></update>
+    <delete id=""></delete>
+     -->
+    
+    <insert id="m1">
+    	insert into tblMyBatis (seq, item, price, regdate) values (seqMyBatis.nextVal, '본체', 500000, default)	
+    </insert>
+    
+    
+    <!--
+    	#{} 안에 이름은 뭐든 상관없지만 헷갈리니까 맞춰준다.
+    	parameterType은 넘겨받은 인자의 자료형을 적어준다.
+    -->
+    <update id="m2" parameterType="String">
+    	update tblMyBatis set 
+    		price = price * 1.2
+    			where seq = #{seq}
+    </update>
+    
+    
+    <!-- 원래는 java.lang.String -->
+    <delete id="m3" parameterType="String">
+    	delete from tblMyBatis where seq = #{seq}    
+    </delete>
+    
+    
+    <!-- 해당 클래스 위치까지 적어야 찾을 수 있다. -->
+    <insert id="m4" parameterType="com.test.spring.MyBatisDTO">
+    	insert into tblMyBatis (seq, item, price, regdate) 
+    			values (seqMyBatis.nextVal, #{item}, #{price}, default)	
+    </insert>
+
+
+	<!-- 결과값 Integer -->    
+    <select id="m5" parameterType="String" resultType="Integer">
+    	select price from tblMyBatis where seq = #{seq}
+    </select>
+   
+    
+    <select id="m6" parameterType="String" resultType="dto">
+    	select * from tblMyBatis where seq = #{seq}
+    </select>
+   
+   
+   <!-- 
+   		반환되는 레코드의 개수와 상관없이 resultType은 항상 레코드 1개의 자료형으로만 작성한다.
+    -->
+   <select id="m7" resultType="String">
+   		select item from tblMyBatis
+   </select>
+   
+   
+   <select id="m8" resultType="dto">
+   		select * from tblMyBatis
+   </select>
+   
+   
+   <select id="m9" parameterType="String" resultType="Integer">
+   		select count(*) from ${table}
+   </select>
+   
+   
+   <select id="m10" parameterType="String" resultType="dto">
+   		select * from tblMyBatis where item like '%' || #{word} || '%'
+   							<!-- where item like '%${word}%' -->
+   </select>
+   
+   
+   <select id="m11" parameterType="String" resultType="String">
+   		<!-- 
+   		<if test="type == 1">
+   		select first_name from employees order by 1
+   		</if>
+   		
+   		<if test="type == 2">
+   		select last_name from employees order by 1
+   		</if>
+   		 -->
+   		 
+   		select 
+   			<if test="type == 1">
+   			first_name
+   			</if>
+   			<if test="type == 2">
+   			last_name
+   			</if>
+   		from employees order by 1
+   		 
+   </select>
+   
+   
+</mapper>
