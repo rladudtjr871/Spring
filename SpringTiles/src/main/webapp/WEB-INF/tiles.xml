@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+	
+	<!-- ***** -->
+	<definition name="test" template="/WEB-INF/views/layout/test.jsp"></definition>
+	
+	<!-- 
+	<definition name="info" template="/WEB-INF/views/layout/layout.jsp">
+		<put-attribute name="asset" value="/WEB-INF/views/inc/asset.jsp"></put-attribute>
+		<put-attribute name="mainmenu" value="/WEB-INF/views/inc/mainmenu.jsp"></put-attribute>
+		<put-attribute name="submenu_member" value="/WEB-INF/views/inc/submenu_member.jsp"></put-attribute>		
+		<put-attribute name="content" value="/WEB-INF/views/member/info.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="point" template="/WEB-INF/views/layout/layout.jsp">
+		<put-attribute name="asset" value="/WEB-INF/views/inc/asset.jsp"></put-attribute>
+		<put-attribute name="mainmenu" value="/WEB-INF/views/inc/mainmenu.jsp"></put-attribute>
+		<put-attribute name="submenu_member" value="/WEB-INF/views/inc/submenu_member.jsp"></put-attribute>		
+		<put-attribute name="content" value="/WEB-INF/views/member/point.jsp"></put-attribute>
+	</definition>
+	
+	
+	<definition name="chart" template="/WEB-INF/views/layout/layout.jsp">
+		<put-attribute name="asset" value="/WEB-INF/views/inc/asset.jsp"></put-attribute>
+		<put-attribute name="mainmenu" value="/WEB-INF/views/inc/mainmenu.jsp"></put-attribute>
+		<put-attribute name="submenu_member" value="/WEB-INF/views/inc/submenu_admin.jsp"></put-attribute>		
+		<put-attribute name="content" value="/WEB-INF/views/admin/chart.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="preference" template="/WEB-INF/views/layout/layout.jsp">
+		<put-attribute name="asset" value="/WEB-INF/views/inc/asset.jsp"></put-attribute>
+		<put-attribute name="mainmenu" value="/WEB-INF/views/inc/mainmenu.jsp"></put-attribute>
+		<put-attribute name="submenu_member" value="/WEB-INF/views/inc/submenu_admin.jsp"></put-attribute>		
+		<put-attribute name="content" value="/WEB-INF/views/admin/preference.jsp"></put-attribute>
+	</definition>
+	 -->
+	 
+	 
+	 
+	 
+	 <!-- 
+	 	member/info
+	 	member/point
+	  -->
+	 
+	 <!-- 
+	 <definition name="*" template="/WEB-INF/views/layout/layout.jsp">
+		<put-attribute name="asset" value="/WEB-INF/views/inc/asset.jsp"></put-attribute>
+		<put-attribute name="mainmenu" value="/WEB-INF/views/inc/mainmenu.jsp"></put-attribute>
+		<put-attribute name="submenu" value="/WEB-INF/views/inc/submenu_member.jsp"></put-attribute>		
+		<put-attribute name="content" value="/WEB-INF/views/member/{1}.jsp"></put-attribute>
+	</definition>
+	 -->
+	
+	
+	
+	
+	<!-- 
+		member/info
+		member/point
+		admin/chart
+		admin/preference
+	 -->
+	<!--  
+	<definition name="*.*" template="/WEB-INF/views/layout/layout.jsp">
+		<put-attribute name="asset" value="/WEB-INF/views/inc/asset.jsp"></put-attribute>
+		<put-attribute name="mainmenu" value="/WEB-INF/views/inc/mainmenu.jsp"></put-attribute>
+		<put-attribute name="submenu" value="/WEB-INF/views/inc/submenu_{1}.jsp"></put-attribute>		
+		<put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp"></put-attribute>
+	</definition> 
+	  -->
+	 
+	 
+	 <!-- return "one.member.info"; -->
+	 <!-- one.*.* 이면 {1}에 첫번째 * {2}에 두번째 *이 들어간다. -->
+	 <definition name="one.*.*" template="/WEB-INF/views/layout/one.jsp">
+		<put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp"></put-attribute>
+	</definition> 
+	
+	<definition name="two.*.*" template="/WEB-INF/views/layout/two.jsp">
+		<put-attribute name="mainmenu" value="/WEB-INF/views/inc/mainmenu.jsp"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp"></put-attribute>
+	</definition> 
+	
+	<definition name="three.*.*" template="/WEB-INF/views/layout/three.jsp">
+		<put-attribute name="mainmenu" value="/WEB-INF/views/inc/mainmenu.jsp"></put-attribute>
+		<put-attribute name="submenu" value="/WEB-INF/views/inc/submenu_{1}.jsp"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp"></put-attribute>
+	</definition> 
+	 
+	 
+	 
+</tiles-definitions>

@@ -1,0 +1,17 @@
+
+
+Spring Tiles
+
+1. pom.xml
+
+2. servlet-context.xml
+
+3. tiles.xml
+
+4. views > "layout" 폴더 생성
+
+
+- layout > "one.jsp", "two.jsp", "three.jsp"
+
+
+

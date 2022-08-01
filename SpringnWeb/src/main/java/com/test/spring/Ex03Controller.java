@@ -13,7 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class Ex03Controller {
 
 //	//요청 메소드 > 맘대로~ > @RequestMapping
-//	@RequestMapping //이걸 붙이는 순간 doGet,doPost 같은 메소드가 도니다.
+//	@RequestMapping //이걸 붙이는 순간 doGet,doPost 같은 메소드가 된다.
 //	public String test() {
 //		
 //		//업무 코드..
