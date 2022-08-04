@@ -1,0 +1,57 @@
+
+Spring MVC + AOP(어노테이) 설정
+
+
+게시판(MVC + MyBatis + Tiles + AOP)
+- 목록 //로그
+- 보기 //로그
+- 쓰기 //회원 전용 + 로그
+
+1. pom.xml
+
+
+
+2.web.xml
+	- 인코딩 필터
+	
+3. root-context.xml
+	- MyBatis 설정 > mapper + mybatis + log4j
+	
+4. servlet-context.xml
+	- Tiles 설정
+	- AOP 설정
+	
+파일 생성하기
+- com.test.spring > "BoardController.java"
+				  > "BoardService.java" (I)
+				  > "BoardServiceImpl.java"
+				  > "BoardDAO.java" (I)
+				  > "BoardDAOImpl.java"
+				  > "BoardDTO.java"
+				  
+				  > "Logger.java"
+				  > "Check.java"
+				  
+				  	 레이아웃 페이지
+- views > "layout" > "board.jsp"
+				  
+				    메인 조각 페이지
+- views > "board" > "list.jsp"
+				  > "add.jsp"
+				  > "view.jsp"				
+				  
+				  조각 페이지
+- views > "inc" > "header.jsp"
+				> "asset.jsp"
+				
+- webapp > resources > css, js, fonts 복사  
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace는 파일명과 동일하게 적어주는게 좋다 , 패키지 같은 느낌-->
+<mapper namespace="board">
+
+	<insert id="add" parameterType="dto">
+		insert into tblSpringBoard (seq, subject, content, id, regdate) 
+			values (seqSpringBoard.nextVal, #{subject}, #{content}, #{id}, default)
+	</insert>
+   
+    <select id="list" resultType="dto">
+    	select * from tblSpringBoard order by seq desc
+    </select>
+   
+   <select id="get" resultType="dto" parameterType="String">
+   		select * from tblSpringBoard where seq = #{seq}
+   </select>
+   
+</mapper>
