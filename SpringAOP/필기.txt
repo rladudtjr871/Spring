@@ -1,0 +1,8 @@
+
+Spring MVC + AOP(어노테이) 설정
+
+
+게시판(MVC + MyBatis + Tiles + AOP)
+- 목록 //로그
+- 보기 //로그
+- 쓰기 //회원 전용 + 로그
