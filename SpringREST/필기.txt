@@ -1,0 +1,156 @@
+
+새 프로젝트
+- Spring MVC Project > "SpringREST" > "com.test.spring"
+- Spring MVC Project > "SpringRESTClient" > "com.test.client"
+
+- SpringREST > REST 서버
+- SpringRESTClient > REST 클라이언트
+
+
+
+
+SpringREST 프로젝트 설정
+- MyBatis + log4j
+
+1. pom.xml
+	- MyBatis
+	- log4j
+	- JDBC
+	- lombok
+	
+2. web.xml
+	- encoding filter
+
+3. root-context.xml
+	- MyBatis
+	- log4j
+
+
+
+
+REST API or RESTful Service > Spring REST
+
+
+REST, Representational State Transfer
+- 웹상의 자원(문서, 그림, 동영상, 데이터 등)을 자원명으로 표시해서 자원의 상태를 주고 받는 행위
+- HTTP URI를 통해서 자원을 명시하고, HTTP Method를 통해 해당 자원에 대한 CRUD를 처리하는 방식
+
+
+이전 구현 방식 vs REST 방식 > URI 작성법 차이(*****)
+
+게시판 구현 
+
+1. 이전 구현 방식 > URI에 자원과 행동이 모두 표현
+	- 목록보기	GET		http://localhost/board/list.do
+	- 추가하기	POST	http://localhost/board/add.do
+	- 수정하기	POST	http://localhost/board/edit.do
+	- 삭제하기	POST	http://localhost/board/del.do
+	- 검색하기	GET		http://localhost/board/list.do?word=검색어
+	
+						http://localhost/board/index.do  > list
+						http://localhost/list.do > list
+	
+2. REST 방식
+	- 목록보기	GET		http://localhost/board
+	- 추가하기	POST	http://localhost/board
+	- 수정하기	PUT		http://localhost/board/1
+	- 삭제하기	DELETE	http://localhost/board/1
+	- 검색하기	GET		http://localhost/board/검색어
+	
+	- 회원목록	GET 	http://localhost/member
+	- 회원가입	POST	http://localhost/member
+	- 회원수정	PUT		http://localhost/member/1
+	- 회원탈퇴	DELETE	http://localhost/member/1
+	
+	- 관리자		GET 	http://localhost/admin-member
+	- 관리자		GET 	http://localhost/adminMember
+	- 관리자		GET 	http://localhost/admin_member
+	
+	
+
+
+REST API 설계 규칙
+
+1. URI에서 자원을 표시한다. > 마지막 단어가 자원을 표현한다.
+
+2. URI에 동사를 표시하지 않는다.
+
+3. HTTP Method를 사용해서 행동을 표현한다.
+	- 2번에서 동사를 사용 안함 > 대신 표현하기 위한 수단
+	a. GET: 리소스 요청
+	b. POST: 데이터 전달 + 서버측 생성
+	c. PUT: 데이터 전달 + 수정(전체 수정)
+	d. PATCH: 데이터 전달 + 수정(일부 수정)
+	e. DELETE: 데이터 삭제
+	
+4. URI + HTTP Method = REST API
+
+5. 구분자는 '/'를 사용한다.
+
+6. URI의 마지막에 '/'를 적지 않는다.
+
+7. '-' 사용 가능하다.(가끔)
+
+8. '_' 사용하지 않는다.(가독성X)
+
+9. 소문자로만 작성한다.(대소문자 구분 > 오타)
+
+10. 확장자를 작성하지 않는다.(확장자 의미 > 불필요)
+
+11. REST API의 반환값은 순수 데이터만 반환한다.
+	- 기존 서비스 > 반환 데이터 > 페이지 소스
+	- REST 서비스 > 반환 데이터 > 순수 데이터(= Ajax 요청 반환값과 동일)
+	- 시간 > 클라이언트 다양성을 지원하기 위해서 > 순수 데이터 응답 > 가성비 향상 
+
+12. Open API
+	- 요청 > 순수 데이터 제공 > 서비스
+	- 대부분의 Open API들이 현재 REST 방식을 지원하고 있다.
+
+
+
+
+
+
+SpringREST
+
+- com.test.spring > "AddressController.java"
+				  > "AddressDAO.java"
+				  > "AddressDTO.java"
+				  
+				  
+
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
