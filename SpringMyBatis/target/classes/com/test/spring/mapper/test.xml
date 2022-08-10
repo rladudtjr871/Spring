@@ -61,7 +61,7 @@
    		select item from tblMyBatis
    </select>
    
-   
+   <!-- webapp > WEB-INF > mybatis.xml 에서 해당 경로를 alias로 dto로 설정 -->
    <select id="m8" resultType="dto">
    		select * from tblMyBatis
    </select>

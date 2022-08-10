@@ -31,7 +31,7 @@ public class BoardServiceImpl implements BoardService {
 		int seq = dao.getSeq(); //방금 쓴 글 번호
 		
 		
-		
+		//req를 다운 캐스팅
 		MultipartHttpServletRequest multi = (MultipartHttpServletRequest)req;
 		
 		//MultipartFile file = multi.getFile("attachlist");		
@@ -55,7 +55,7 @@ public class BoardServiceImpl implements BoardService {
 			
 			try {
 				
-				file.transferTo(tempfile);
+				file.transferTo(tempfile); //원하는 위치에 파일 저장
 				
 			} catch (Exception e) {
 				e.printStackTrace();
