@@ -1,0 +1,17 @@
+
+
+Spring Boot + JSP
+
+1. pom.xml
+	- 의존 추가
+	
+2. application.properties
+	- 서버 포트 추가
+	
+3. 파일 생성하기
+	- "com.test.spring.controller" > "TestController.java"
+	- src > main > "webapp" > "WEB-INF" > "views" > "test.jsp"
+	
+	
+Thymeleaf, 타임리프
+- JSP 대신할 템플릿이 엔진
