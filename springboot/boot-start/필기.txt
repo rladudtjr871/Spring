@@ -1,0 +1,74 @@
+
+Spring Boot
+
+- 스프링 부트 개발 환경 자체에 독립 실행 가능한 아파치 톰캣을 내장하고 있다.
+- 스프링 애플리케이션 제작 기술
+- 독립 실행이 가능한 웹 애플리케이션 제작
+- 아주 간편하게 설정할 수 있다.
+- 기존 스프링 기반 애플리케이션을 더 쉽고 빠르게 설정 가능
+
+- https://start.spring.io/ > Spring Initializr
+
+
+
+Spring Boot 프로젝트 생성
+- Maven or Gradle 를 사용해서 프로젝트를 생성한다.
+- SYS 직접 생성 > (다운로드) > 바로 생성 
+- 스타터 생성 > (다운로드) > Import
+
+
+Spring Boot 프로젝트 구조
+1. src/main/java
+	- 이전과 동일 > 자바 소스 폴더 > 패키지 + 자바
+	- XXXApplication.java > 스프링 부트 메인 클래스 > 시작~끝
+
+2. src/main/resources
+	- static
+		- 정적 웹 자원(HTML, CSS, JavaScript, 이미지)		
+	- templates
+		- View 파일 (=views)		
+	- application.properties
+		- 스프링 부터 설정
+
+3. src/test/java
+	- JUnit 테스트 폴더
+
+4. JRE System Library
+	- JRE
+
+5. Maven Dependencies
+	- Maven
+
+6. src
+	- 이전(webapp, web.xml, views, root-context.xml, servlet-context.xml)
+	- 사용 안함
+
+7. mvnw.cmd
+	- 메이븐
+
+8. pom.xml
+	- POM
+
+
+
+> mvnw install
+> cd target
+> java -jar hello-0.0.1-SNAPSHOT.jar
+
+http://localhost:8090/hello.html
+
+플러그인
+1. emmet
+2. Client 지원 기능(Eclipse Web Developer Tools > HrTML, CSS, JavaScript..)
+3. JSP 지원 기능(2번 포함 + JSP 기능 추가) (공부할 떄만 까는거 나중에 직접 쓸 땐 깔지마라)
+
+
+
+Spring Boot + JSP
+
+
+
+
+
+
+
