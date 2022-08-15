@@ -1,0 +1,53 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+설정
+1. JSP 사용하기
+	- pom.xml
+	- application.properties
+	
+	
+	
+의존 주입
+- "com.test(.spring).controller" > "DIController.java"
+- "com.test.repository" > "TestDAO.java"
+						> "IMemberDAO.java" (I)
+						> "MemberDAO.java" (C)
+						> "AdminDAO.java" (C)
+						
+
+//인터페이스를 만들어 나누는 이유
+//예전 스프링 기술들이(3.xx, 4.xx) 인터페이스를 만들지 않으면 동작이 안 되는 경우(ex. AOP)가 있다.
+
+
+
+
+Spring REST
+- ""
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
