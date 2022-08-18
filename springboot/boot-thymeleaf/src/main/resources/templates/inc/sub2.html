@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<body>
+<main>
+	
+	<!-- sub2.html -->
+	
+	<div th:fragment="title">제목입니다.</div>
+	
+	<div th:fragment="content">내용입니다.</div>
+	
+	<div th:fragment="owner(name,tel)">
+		소유주: <span th:text="${name}"></span>
+		연락처: <span th:text="${tel}"></span>
+	</div>
+	
+</main>
+</body>
+</html>

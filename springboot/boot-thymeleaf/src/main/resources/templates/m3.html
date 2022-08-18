@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/css/mvp.css">
+</head>
+<body>
+	
+<main>
+	<!-- m3.html -->
+	<h1>Thymeleaf</h1>
+	
+	<!-- 
+	
+		Thymeleaf Standard Expression, 타임리프 표현식
+		
+		1. Variable Expressions, 변수 표현식
+			- ${}
+			- 컨트롤러부터 전달된 값을 출력한다.
+			- JSP의 EL 유사 > SpringEL
+		
+		2. Selection Variable Expressions, 선택 변수 표현식
+			- *{}
+			- 객체/맵 프로퍼티를 출력한다.
+			- th:object 속성 같이 사용한다.
+			
+		3. Message Expressions, 메시지 표현식
+			- #{}
+			- 스프링 메시지를 출력한다.
+		
+		4. Link URL Expressions, 링크 주소 표현식
+			- @{}
+			- 링크의 URL을 출력한다.
+		
+		5. Fragment Expressions, 조각 표현식
+			- ~{}
+			- 조각 페이지를 삽입한다.		
+	
+	
+		타임리프 == th:XXX 속성 + 표현식
+		
+		th:text
+		- 해당 태그의 PCDATA로 값을 출력한다.
+	
+	 -->
+	 
+	 <h2>변수 표현식</h2>
+	 
+	 <div>${num}</div>
+	 <div th:text="${num}"></div>
+	 <div th:text="100"></div>
+	 
+	 <h3>타입별 출력</h3>
+	 
+	 <div>숫자: 100</div>
+	 <div th:text="${num}">숫자: </div>
+	 <div>숫자: <span th:text="${num}"></span></div>
+	 
+	 <div>숫자: <span th:text="${num}"></span></div>
+	 <div>문자열: <span th:text="${txt}"></span></div>
+	 <div>날짜: <span th:text="${now}"></span></div>
+	 <div>객체: <span th:text="${dto}"></span></div>
+	 <div>맵: <span th:text="${map}"></span></div>
+	 
+	 <h3>복합 데이터(객체,맵) 프로퍼티</h3>
+	 <div>이름: <span th:text="${dto.getName()}"></span></div>
+	 <div>이름: <span th:text="${dto.name}"></span></div>
+	 <div>나이: <span th:text="${dto.age}"></span></div>
+	 <div>주소: <span th:text="${dto.address}"></span></div>
+	 
+	 
+	 <!-- 선택 변수 표현식 -->
+	 <div th:object="${dto}">
+	 	<div>이름: <span th:text="*{name}"></span></div>
+	 	<div>나이: <span th:text="*{age}"></span></div>
+	 	<div>주소: <span th:text="*{address}"></span></div>
+	 </div>
+	 
+	 <hr>
+	 
+	 <div>국어: <span th:text="${map.get('kor')}"></span></div>
+	 <div>영어: <span th:text="${map.eng}"></span></div>
+	 <div>수학: <span th:text="${map.math}"></span></div>
+	 
+	 <div th:object="${map}">
+	 	<div>국어: <span th:text="*{kor}"></span></div>
+	 	<div>영어: <span th:text="*{eng}"></span></div>
+	 	<div>수어: <span th:text="*{math}"></span></div>
+	 </div>
+	 
+	
+	
+</main>	
+	
+</body>
+</html>

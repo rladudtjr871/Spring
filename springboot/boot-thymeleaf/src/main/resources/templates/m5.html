@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title></title>
+<link rel="stylesheet" href="/css/mvp.css">
+</head>
+<body>
+<main>
+	
+	<!-- m5.html -->
+	<h1>Thymeleaf</h1>
+	
+	<!-- 
+		타임리프 상수
+		- Text Literals: 'hong', 'test', '100'
+		- Number Literals: 10, 123, 3.14
+		- Boolean Literals: true, false
+		- Null Literals: null
+	 -->
+	 
+	 <h2>Thymeleaf Literals</h2>
+	 
+	 <div th:text="${'홍길동'}"></div>
+	 <div th:text="'홍길동'"></div>
+	 <div th:text="100"></div>
+	 <div th:text="true"></div>
+	 <div th:text="null"></div>
+	
+	
+	<!-- 
+		타임리프 연산자
+		- 산술 연산자
+			- 동일
+		- 비교 연산자
+			- 동일
+			- 영문 표현 제공(= JSP EL)
+		- 논리 연산자
+			- 동일
+			- 영문 표현 제공(= JSP EL)
+		- 삼항 연산자
+			- 동일
+			- 추가 기능
+		- 문자열 연산자
+			- 동일(+)
+			- Literal Substitions
+			
+			
+	 -->
+	
+	<h2>Thymeleaf Operations</h2>
+	
+	<div>10 + 3 = 13</div>
+	<div><span th:text="${a}"></span> + <span th:text="${b}"></span> = <span th:text="${a+b}"></span></div>
+	<div th:text="${a + ' + ' + b + ' = ' + (a + b)}"></div>
+	
+	<div th:text="${a} + ' + ' + ${b} + ' = ' + ${(a + b)}"></div>
+	
+	<div th:text="'${a}'"></div>
+	<div th:text="|${a}|"></div>
+	
+	<div th:text="|${a} + ${b} = ${a + b}|"></div>
+	
+	<hr>
+	
+	<div th:text="${a} + ${b}"></div>
+	<div th:text="${a} - ${b}"></div>
+	<div th:text="${a} * ${b}"></div>
+	<div th:text="${a} / ${b}"></div>
+	<div th:text="${a} % ${b}"></div>
+	
+	<hr>
+	
+	<div th:text="${a} > ${b}"></div>
+	<div th:text="${a} >= ${b}"></div>
+	<div th:text="${a} < ${b}"></div>
+	<div th:text="${a} <= ${b}"></div>
+	<div th:text="${a} == ${b}"></div>
+	<div th:text="${a} != ${b}"></div>
+	
+	
+	<div th:text="${a} gt ${b}"></div>
+	<div th:text="${a} ge ${b}"></div>
+	<div th:text="${a} lt ${b}"></div>
+	<div th:text="${a} le ${b}"></div>
+	<div th:text="${a} eq ${b}"></div>
+	<div th:text="${a} ne ${b}"></div>
+	<div th:text="${a} neq ${b}"></div>
+	
+	<hr>
+	
+	<div th:text="true and false"></div>
+	<div th:text="true or false"></div>
+	
+	<hr>
+	
+	<div th:text="${a} < 0 ? '양수' : '음수'"></div>
+	
+	<div th:text="${a} < 0 ? '양수'"></div>
+	
+	<div th:text="${a} != null ? ${c} : '데이터없음'"></div>
+	<div th:text="${a} ? ${c} : '데이터없음'"></div>
+	<div th:text="${a} ?: '데이터없음'"></div> <!-- Elvis 연산자 -->
+	<div th:text="${a} ?: _">데이터 없음</div> <!-- No-Operation -->
+	
+	
+</main>
+</body>
+</html>

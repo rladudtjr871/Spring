@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title></title>
+<link rel="stylesheet" href="/css/mvp.css">
+</head>
+<body>
+<main>
+	
+	<!-- m8.html -->
+	<h1>Thymeleaf</h1>
+	
+	<!-- 
+	
+	Thymeleaf Format
+	- 데이터를 일정한 형식으로 표현하는 도구
+	- Expression Utillity Object
+	- #numbers
+	- #dates
+		
+	 -->
+	
+	<h2>숫자</h2>
+	
+	<div th:text="${num1}"></div>
+	<div th:text="${#numbers.formatInteger(num1, 3, 'COMMA')}"></div>
+	
+	<div th:text="${num2}"></div>
+	<div th:text="${#numbers.formatDecimal(num2, 3, 'COMMA', 2, 'POINT')}"></div>	
+	
+	<h2>날짜</h2>
+	
+	<div th:text="${now}"></div>
+	
+	<div th:text="${#dates.year(now)}"></div>
+	<div th:text="${#dates.month(now)}"></div>
+	<div th:text="${#dates.monthName(now)}"></div>
+	<div th:text="${#dates.monthNameShort(now)}"></div>
+	<div th:text="${#dates.day(now)}"></div>
+	<div th:text="${#dates.hour(now)}"></div>
+	<div th:text="${#dates.minute(now)}"></div>
+	<div th:text="${#dates.second(now)}"></div>
+	<div th:text="${#dates.millisecond(now)}"></div>
+	<div th:text="${#dates.dayOfWeek(now)}"></div>
+	<div th:text="${#dates.dayOfWeekName(now)}"></div>
+	<div th:text="${#dates.dayOfWeekNameShort(now)}"></div>
+	<div th:text="${#dates.format(now)}"></div>
+	<div th:text="${#dates.format(now, 'yyyy-MM-dd HH:mm:ss')}"></div>
+	<div th:text="${#dates.format(now, 'yyyy-MM-dd aa hh:mm:ss')}"></div>
+	
+	
+</main>
+</body>
+</html>

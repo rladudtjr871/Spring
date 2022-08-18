@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<th:block th:replace="~{inc/part::head('Card')}"></th:block>
+<body>
+<style>
+		table {
+			margin: 10px;
+		}
+</style>
+<main>
+	
+	<!-- 
+		
+		templates > layout > layout.html
+		
+		Spring Tiles
+		- <definition template="layout/layout.jsp">
+	
+	 -->
+	<th:block th:replace="~{inc/part::header('Address Card')}"></th:block>	
+	
+	<th:block layout:fragment="content"></th:block>
+	
+	<th:block th:replace="~{inc/part::footer('2022', 'test.com')}"></th:block>
+	
+</main>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

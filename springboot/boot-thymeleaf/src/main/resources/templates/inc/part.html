@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<body>
+	
+	<!-- inc > part.html -->
+	
+	<head th:fragment="head(title)">
+		<meta charset="UTF-8">
+		<title>Thymeleaf > <th:block th:text="${title}"></th:block></title>
+		<link rel="stylesheet" href="/css/mvp.css">
+		<style>
+			table {
+				width: 600px;
+			}
+		</style>
+	</head>
+	
+	
+	<th:block th:fragment="header(title)">
+		<h1>Thymeleaf</h1>	
+		<h2 th:text="${title}"></h2>
+	</th:block>
+	
+	<div th:fragment="footer(year, domain)" th:inline="text">
+		&copy;Copyright [[${year}]] [[${domain}]] All rights reserved.		
+	</div>
+	
+	<th:block th:fragment="listItem(seq, name, age, tel, address)">
+		<td th:text="${seq}"></td>
+		<td th:text="${name}"></td>
+		<td th:text="${age}"></td>
+		<td th:text="${tel}"></td>
+		<td th:text="${address}"></td>
+	</th:block>
+	
+	
+	<th:block th:fragment="listItem2(dto)">
+		<td th:text="${dto.seq}"></td>
+		<td th:text="${dto.name}"></td>
+		<td th:text="${dto.age}"></td>
+		<td th:text="${dto.tel}"></td>
+		<td th:text="${dto.address}"></td>
+	</th:block>
+	
+	
+	
+	<table th:fragment="card(list)" th:each="dto : ${list}">
+		<tr>
+			<td th:text="|${dto.name}(${dto.age}세)|"></td>
+		</tr>
+		<tr>
+			<td th:text="${dto.tel}"></td>
+		</tr>
+		<tr>		
+			<td th:text="${dto.address}"></td>
+		</tr>
+	</table>
+	
+	
+</body>
+</html>

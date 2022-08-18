@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title></title>
+<link rel="stylesheet" href="/css/mvp.css">
+<style>
+	a {
+		display: block;
+		margin-bottom: 15px;		
+	}
+</style>
+</head>
+<body>
+<main>
+	
+	<!-- m9.html -->
+	<h1>Thymeleaf</h1>
+	
+	<!-- 
+	
+		Thymeleaf Links
+		
+		4. Link URL Expressions, 링크 주소 표현식
+			- @{}
+			- 링크의 URL을 출력한다.			
+			a. 매개변수 표현이 편리
+			b. Context Root Path 자동으로 삽입된다.
+	 -->
+	 
+	 <h2>Link</h2>
+	 
+	 <a href="/hello">링크입니다.</a>
+	 <a th:href="@{/hello}">링크입니다.</a>
+	 
+	 
+	 <hr>
+	 
+	 <h3>QueryString, 매개변수</h3>
+	 <a href="/m8?seq=100">링크입니다.</a>
+	 <a href="/m8?seq=${seq}">링크입니다.</a>
+	 <a href="/m8?seq=[[${seq}]]">링크입니다.</a>
+	 
+	 <!--/*  
+	 <a th:href="/m8?seq=${seq}">링크입니다.</a>
+	 <a th:href="/m8?seq=[[${seq}]]">링크입니다.</a>
+	 */-->
+	 
+	 <a th:href="@{/m8?(seq=${seq})}">링크입니다.</a>
+	 
+	 <a href="/m8?seq=100&mode=add">링크입니다.</a>
+	 
+	 <a th:href="@{/m8?(seq=${seq}, mode=${mode})}">링크입니다.</a>
+	 
+	 <a th:href="@{/m8?(${seq}, ${mode})}">링크입니다.</a> <!-- key값이 빠져 무쓸모 -->
+	 
+	 <hr>
+	 
+	 <!-- 
+	 
+	 	기존 웹
+	 	- /m8?seq=1
+	 	
+	 	REST > 경로 변수
+	 	- /m8/1
+	 	- /m8/add/100
+	 
+	  -->
+	  
+	  <!-- 앞에 {seq}가 있으면 @가 아닌 {seq}에다가 ${seq}를 넣는다. seq는 {seq}를 나타낸다.(경로변수) -->
+	  <a th:href="@{/m8/{seq}(seq=${seq})}">링크입니다.</a>
+	  <a th:href="@{/m8/{mode}/{seq}(seq=${seq}, mode=${mode})}">링크입니다.</a>
+	  <a th:href="@{/m8/{mode}(seq=${seq}, mode=${mode})}">링크입니다.</a>
+	  
+	  
+	 
+	
+</main>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/css/mvp.css">
+</head>
+<body>
+
+<main>
+	
+	<!-- m4.html -->
+	<h1>Thymeleaf</h1>
+	
+	<!-- 
+	
+		3. Message Expressions, 메시지 표현식
+			- #{}
+			- 스프링 메시지를 출력한다.
+			- 스프링 메시지
+				- 전역 문자열(모든 페이지에서 공통으로 사용 가능한 문자열)
+				- 다국화(국제화) 표현 > 한국어, 영어, 일본어
+	
+	 -->
+	
+	<h2>스프링 메시지</h2>
+	
+	<!--/*  <div th:text="#{language}"></div> */-->
+	
+	<h3 th:text="#{item.title}"></h3>
+	
+	<ul>
+		<li><span th:text="#{item.name}"></span></li>
+		<li><span th:text="#{item.color}"></span></li>
+		<li><span th:text="#{item.option}"></span></li>
+		<li><span th:text="#{item.desc(#{item.name},#{item.color})}"></span></li>
+	</ul>
+	
+	
+</main>
+
+</body>
+</html>

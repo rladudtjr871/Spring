@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title></title>
+<link rel="stylesheet" href="/css/mvp.css">
+</head>
+<body>
+<main>
+	
+	<!-- m7.html -->
+	<h1>Thymeleaf</h1>
+	
+	<!--/* 
+	
+		Thymeleaf Text
+		- HTML 콘텐츠에 데이터 출력
+			- th:text
+				- excape text
+				- '<' -> &lt;
+				- '>' -> &gt;
+			- th:utext
+				- unescaped text
+				- 그대로 출력
+				
+		- 인라인 출력
+			- th:inline="text" //사용 잘 안함
+			- th:inline="javascript" //주력
+			- th:inline + [[]] //excape text	
+			- th:inline + [()] //unescaped text
+			
+			
+		1. HTML
+			- th:text
+			- th:utext
+		
+		2. CSS
+			- th:inline="text" + [[]]
+			
+		3. JavaScript
+			- th:inline="javascript"
+	
+	 */-->
+	 
+	 <h2>Text</h2>
+	 
+	 <div th:text="${dto.name}"></div>
+	 <div th:utext="${dto.name}"></div>
+	 
+	 <div th:text="${txt}"></div>
+	 <div th:utext="${txt}"></div>
+	 
+	 	 
+	 <hr>
+	 
+	 <div th:inline="text">[[${txt}]]</div>
+	 <div th:inline="text">[(${txt})]</div>
+	 
+	 <hr>
+	 
+	 <div>이름: <span th:text="${dto.name}"></span></div>
+	 <div th:text="'이름: ' + ${dto.name}"></div>
+	 <div th:text="|이름: ${dto.name}|"></div>
+	 <div th:inline="text">이름: [[${dto.name}]]</div>
+	 <div>이름: [[${dto.name}]]</div>
+	
+	
+	<hr>
+	
+	<!-- 개발 순서 : 클라이언트 작성 -> 서버 작성 -->
+	
+	<!-- 퍼블리싱 담당자가 작성한 코드 -->
+	<div>이름: <span th:text="${dto.name}">홍길동</span></div>
+	<div>이름: [[${text}]]</div>
+	
+	<hr>
+	
+	<div id="label1"></div>
+	<div id="label2"></div>
+	
+	<!-- 태그에 아무것도 없으면 th:inline="text" 상태 -->
+	<script>
+	
+		let name1 = '[[${dto.name}]]';		
+		document.getElementById('label1').textContent = name1;
+	
+		let dto1 = '[[${dto}]]';
+		//document.getElementById('label1').textContent = dto1;
+		
+		let dto3 = '[(${dto})]';
+		
+		let map1 = '[(${map})]';
+		
+		let names1 = '[[${names}]]';
+		
+		let list = '[[${list}]]'
+		
+	</script>
+	
+	
+	<script th:inline="javascript">
+	
+		let name2 = [[${dto.name}]];		
+		document.getElementById('label2').textContent = name2;
+	
+		let dto2 = [[${dto}]];
+		document.getElementById('label2').textContent = dto2.age;
+		
+		//let dto4 = [(${dto})];
+		
+		let map2 = [[${map}]];
+		
+		let names = [[${names}]];
+		
+		let list2 = [[${list}]];
+		
+	</script>
+	
+</main>
+</body>
+</html>
