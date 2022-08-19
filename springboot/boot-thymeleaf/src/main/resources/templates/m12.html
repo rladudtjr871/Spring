@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title></title>
+<link rel="stylesheet" href="/css/mvp.css">
+</head>
+<body>
+<main>
+	
+	<!--  -->
+	<h1>Thymeleaf</h1>
+	
+	<!-- 
+		
+		Thymeleaf Expression Basic Objects, 기본 객체
+		- 일부분 == JSP 내장 객체
+		
+		- ${#request}
+		- ${#response}
+		- ${#locale}
+		- ${#session}
+		- ${#servletContext} > application
+	
+	 -->
+	 
+	 
+	 <h2>Basic Object</h2>
+	 
+	 <div>request: <th:block th:text="${#request}"></th:block></div>
+	 <div>response: <th:block th:text="${#response}"></th:block></div>
+	 <div>locale: <th:block th:text="${#locale}"></th:block></div>
+	 <div>session: <th:block th:text="${#session}"></th:block></div><!-- 고정으로 제공되는 기능 -->
+	 <div>servletContext: <th:block th:text="${#servletContext}"></th:block></div>
+	
+	 <hr>
+	 
+	 <!-- 우리가만든 key를 쓰는 session 위에 session과 다름 -->
+	 <div th:if="${session.auth != null}">
+	 	인증: <th:block th:text="${session.auth}"></th:block>
+	 </div>
+	 
+	 <div th:unless="${session.auth != null}">
+	 	미인증
+	 </div>
+	 
+	 <hr>
+	 
+	 <!-- 
+	 	QueryString
+	 	- http://localhost:8090/m12?seq=123
+	 	- Controller에서의 처리 후 jsp로 보내주던 방식 없이
+	 	  직통으로 그냥 받을 수 있다.
+	  -->
+	 <div th:text="${param.seq}"></div>
+	
+</main>
+</body>
+</html>

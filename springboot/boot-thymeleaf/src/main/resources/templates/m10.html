@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title></title>
+<link rel="stylesheet" href="/css/mvp.css">
+</head>
+<body>
+<main>
+	
+	<!-- m10.html -->
+	<h1>Thymeleaf</h1>
+	
+	<!-- 
+	
+		Thymeleaf Conditions
+		- th:if
+		- th:unless
+		
+		- th:switch
+		
+		조건문은 만족할때만 해당 태그를 랜더링 한다.(*******)
+			
+	 -->
+	 
+	 <h2>if</h2>
+	 
+	 <!-- 조건에 만족 못하면 안 찍힌다. -->
+	 <div th:if="${num1} > 0">num1: 양수 O</div>
+	 <div th:if="${num2} > 0">num2: 양수 O</div>
+	
+	 <hr>
+	 
+	 <div th:if="${num1} > 0" >100은 양수입니다.</div>
+	 <div th:if="${num2} > 0" >-50은 양수입니다.</div>
+	 
+	 <hr>
+	 
+	 <div th:if="${num1} > 0">100은 양수입니다.</div>
+	 
+	 <hr>
+	 
+	 <div th:if="${num1} > 0" th:text="${num1} + '은 양수입니다.'"></div>
+	 
+	 <hr>
+	 
+	 <!-- *** -->
+	 <div th:if="${num1} > 0" th:text="|${num1} 은 양수입니다.|"></div>
+	
+	 
+	 <div th:if="${num1} > 0">[[${num1}]]은 양수입니다.</div>
+	
+	 <hr>
+	 
+	 <div th:if="${num1} > 0">양수O</div>
+	 <div th:unless="${num1} > 0">양수X</div>
+	 
+	 <div th:if="${num2} > 0">양수O</div>
+	 <div th:unless="${num2} > 0">양수X</div>
+	
+	 <div th:if="${num1} > 0">양수O</div>
+	 <div th:if="${num1} <= 0">양수X</div>
+	 
+	 <hr>
+	 
+	 <!-- 조건 만족시 랜더링, 만족 못할시 랜더링x -->
+	 <div th:switch="${mode}">
+	 	<div th:case="add">추가하기</div>
+	 	<div th:case="remove">삭제하기</div>
+	 	<div th:case="*">기타</div>
+	 </div>
+	
+</main>
+</body>
+</html>
+
+
+
+
+

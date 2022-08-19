@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<th:block th:replace="~{inc/part::head('List')}"></th:block>
+<body>
+<main>
+	
+	<!-- m15.html -->
+	<th:block th:replace="~{inc/part::header('Address List')}"></th:block>	
+	
+	<table>
+		<thead>
+			<tr>
+				<th>번호</th>
+				<th>이름</th>
+				<th>나이</th>
+				<th>전화</th>
+				<th>주소</th>
+			</tr>	
+		</thead>
+		<tbody>
+			<tr th:each="dto : ${list}" th:object="${dto}">
+				<th:block th:replace="~{inc/part::listItem(*{seq}, *{name}, *{age}, *{tel}, *{address})}"></th:block>
+			</tr>
+			
+			<tr th:each="dto : ${list}">
+				<th:block th:replace="~{inc/part::listItem2(${dto})}"></th:block>
+			</tr>
+		</tbody>
+	</table>
+	
+	<th:block th:replace="~{inc/part::footer('2022', 'test.com')}"></th:block>
+	
+</main>
+</body>
+</html>

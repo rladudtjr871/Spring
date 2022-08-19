@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title></title>
+<link rel="stylesheet" href="/css/mvp.css">
+</head>
+<body>
+<main>
+	
+	<!-- m11.html -->
+	<h1>Thymeleaf</h1>
+	
+	<!-- 
+	
+		Thymeleaf Iterations
+		- th:each
+			
+	 -->
+	 
+	 <h2>each</h2>
+	 
+	 <ul>
+	 	<li th:each="name : ${names}" th:text="${name}"></li>
+	 </ul>
+	 
+	 <hr>
+	 
+	 <ul>
+	 	<li th:each="name : ${names}"><span th:text="${name}"></span></li>
+	 </ul>
+	 
+	 <hr>
+	 
+	 <!-- 이런 실수 조심. ul이 반복된다. -->
+	 <ul th:each="name : ${names}">
+	 	<li th:text="${name}"></li>
+	 </ul>
+	
+	 <hr>
+	 
+	 <ul>
+	 	<li th:each="dto : ${list}" th:text="|${dto.name}(${dto.age}) ${dto.address} |"></li>
+	 </ul>
+	 
+	 <hr>
+	 
+	 <ul>
+	 	<li th:each="dto : ${list}" th:object="${dto}">
+	 		<span th:text="*{name}"></span>
+	 		<span th:text="*{age}"></span>
+	 		<span th:text="*{address}"></span>	 		
+	 	</li>
+	 </ul>
+	 
+	 <hr>
+	 
+	 <table>
+	 	<thead>
+		 	<tr>
+		 		<th>번호</th>
+		 		<th>이름</th>
+		 		<th>나이</th>
+		 		<th>전화</th>
+		 		<th>주소</th>
+		 		<th></th>
+		 		<th></th>
+		 		<th></th>
+		 		<th></th>
+		 		<th></th>
+		 		<th></th>
+		 		<th></th>
+		 		<th></th>
+		 	</tr>
+	 	</thead>
+	 	<tbody>
+	 		<tr th:each="dto, status : ${list}">
+	 			<td th:text="${dto.seq}"></td>
+	 			<td th:text="${dto.name}"></td>
+	 			<td th:text="${dto.age}"></td>
+	 			<td th:text="${dto.tel}"></td>
+	 			<td th:text="${dto.address}"></td>
+	 			<td th:text="${status.index}"></td>
+	 			<td th:text="${status.count}"></td>
+	 			<td th:text="${status.size}"></td>
+	 			<td th:text="${status.even}"></td>
+	 			<td th:text="${status.odd}"></td>
+	 			<td th:text="${status.first}"></td>
+	 			<td th:text="${status.last}"></td>
+	 			<td th:if="${dto.age >= 25}">성인</td>
+	 			<td th:unless="${dto.age >= 25}">미성인</td>	 			
+	 		</tr>
+	 	</tbody>
+	 </table>
+	 
+	 <hr>
+	 
+	 <div th:each="num : ${#numbers.sequence(1, 10)}" th:text="${num}"></div>
+	 
+	 <hr>
+	 
+	 <!-- 
+	 
+	 	Thymeleaf Block
+	 	- th:block
+	 	- 타임리프에서 유일한 태그
+	 	- 스스로 출력하는 타임리프 태그
+	 	 
+	  -->
+	  
+	  <th:block th:if="${10 > 0}" th:text="양수"></th:block>
+	  
+	  <div th:if="${10 > 0}" th:text="양수"></div>
+	  
+	  <hr>
+	  
+	  <ul>
+	  	<li th:each="name: ${names}">이름: <span th:text="${name}"></span></li>
+	  </ul>
+	  
+	  <hr>
+	  
+	  <ul>
+	  	<li th:each="name: ${names}">이름: <th:block th:text="${name}"></th:block></li>
+	  </ul>
+	  
+	  
+	
+</main>
+</body>
+</html>

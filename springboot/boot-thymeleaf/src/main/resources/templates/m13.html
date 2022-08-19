@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title></title>
+<link rel="stylesheet" href="/css/mvp.css">
+</head>
+<body>
+<main>
+	
+	<!-- m13.html -->
+	<h1>Thymeleaf</h1>
+	
+	<!-- 
+		
+		Thymeleaf Form
+		- th:action
+		- th:object
+		- th:field > id, name, value 모두 생성해준다.
+		
+	 -->
+	 
+	 <h2>주소록 수정하기</h2>
+	 
+	 <form th:object="${dto}" th:action="@{/addok}">
+	 	<table>
+	 		<tr>
+	 			<th>이름</th>
+	 			<td><input type="text" th:value="*{name}"></td>
+	 		</tr>
+	 		<tr>
+	 			<th>나이</th>
+	 			<td><input type="text" th:value="*{age}"></td>
+	 		</tr>
+	 		<tr>
+	 			<th>전화</th>
+	 			<td><input type="text" th:field="*{tel}"></td>
+	 		</tr>
+	 		<tr>
+	 			<th>주소</th>
+	 			<td><input type="text" th:field="*{address}"></td>
+	 		</tr>
+	 	</table>
+	 	
+	 	<div>
+	 		<input type="button" value="수정하기">
+	 	</div>
+	 	
+	 	<input type="hidden" th:field="*{seq}">
+	 </form>
+	 
+	 <hr>
+	 
+	 <!-- 
+	 	#ids 유틸리티 객체
+	 	- #ids.seq
+	 	- #ids.prev
+	 	- #ids.next
+	  -->
+	  
+	  <form>
+	  	<div>
+	  		<label for="cb1">체크박스1</label>
+	  		<input type="checkbox" id="cb1">
+	  	</div>
+	  	
+	  	<div>
+	  		<label for="cb2">체크박스2</label>
+	  		<input type="checkbox" id="cb2">
+	  	</div>
+	  	
+	  	<div>
+	  		<label for="cb3">체크박스3</label>
+	  		<input type="checkbox" id="cb3">
+	  	</div>
+	  </form>
+	 
+	 
+	 <form>
+	 	<div th:each="n : ${#numbers.sequence(1,3)}">
+	 		<label th:for="'cb' + ${n}">체크박스<th:block th:text="${n}"></th:block></label>
+	  		<input type="checkbox" th:id="|cb${n}|">
+	 	</div>
+	 </form>
+	 
+	 
+	 <form><!-- th:for와 th:id에 ids.seq와 ids.prev는 같은 값을 가지도록하려고 쓴다. -->
+	 	<div th:each="n : ${#numbers.sequence(1,3)}">
+	 		<label th:for="${#ids.seq('cb')}">체크박스<th:block th:text="${#ids.prev('cb')}"></th:block></label>
+	  		<input type="checkbox" th:id="${#ids.prev('cb')}">
+	 	</div>
+	 </form>
+	 
+	 
+	 <hr>
+	 
+	 <!-- 
+	 
+	 	로컬 변수
+	 	- th:with
+	 	- 자원 관리 차원에서 제공	 
+	 	
+	  -->
+	  
+	  <div th:with="x=100, y=200, z=${dto.age}">
+	  	<div th:text="${x}"></div>
+	  	<div th:text="${y}"></div>
+	  	<div th:text="${z}"></div>
+	  </div>
+	  
+	  <!-- 밖에선 사용 불가, 또한 if문과 달리 이 경우 데이터가 없지만 태그가 남는다. -->
+	  <div th:text="${x}"></div>
+	  <div th:text="${z}"></div>
+	  <div th:text="${dto.age}"></div>
+	
+</main>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title></title>
+<link rel="stylesheet" href="/css/mvp.css">
+</head>
+<body>
+<main>
+	
+	<!-- m14.html -->
+	<h1>Thymeleaf</h1>
+	
+	<!-- 
+	
+		Thymeleaf Fragment
+		- 조각 페이지
+		- JSP => <%@include %>
+		- Spring => Tiles
+		
+		1. th:fragment
+			- 조각 페이지 정의
+		
+		2. th:insert
+			- 조각 페이지 삽입
+			- 해당 태그는 그대로 렌더링 + 조각 페이지를 자식으로 추가한다.
+		
+		3. th:replace
+			- 조각 페이지 삽입
+			- 해당 태그가 사라지고 대신 조각 페이지를 출력한다.
+		
+		4. th:include
+			- 3.0 이후 비권장		
+	
+	 -->
+	 
+	 <h2>Fragment</h2>
+	 
+	 <h3>insert</h3>
+	 <div th:insert="~{inc/sub1.html}"></div>	 
+	 
+	 <h3>replace</h3>
+	 <div th:replace="~{inc/sub1.html}"></div>
+	 
+	 <hr>
+	 
+	 <!-- 확장자 생략 가능 > 일반적으로 안 씀 -->
+	 <div th:insert="~{inc/sub1}"></div>
+	 
+	 <hr>
+	 
+	 <!-- ~{} 생략 가능 > 비권장 -->
+	 <div th:insert="inc/sub1"></div>
+	 
+	 <hr>
+	 
+	 <div th:insert="~{inc/sub2.html :: title}"></div>
+	 
+	 <hr>
+	 
+	 <div th:insert="~{inc/sub2::content}"></div>
+	 
+	 <hr>
+	 
+	 <div th:insert="~{inc/sub2::owner('아무개', '010-1234-5678')}"></div>
+	 <div th:insert="~{inc/sub2::owner('테스트', '010-6789-1235')}"></div>
+		
+</main>
+</body>
+</html>
